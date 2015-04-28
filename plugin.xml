@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="de.fastr.phonegap.plugins.ControlWebview" version="0.9.8">
+	<name>Control Webview</name>
+	<author>Fabian Strachanski</author>
+	<description>Adds a Second invisible Cordova-Enabled Webview to your project that can control the main webview. (useful when your main webview shows not cordova enabled remote content)</description>
+	<license>MIT</license>
+	<keywords>webview, control </keywords>
+	<repo>https://github.com/fastrde/phonegap-control-webview.git</repo>
+	<issue>https://github.com/fastrde/phonegap-control-webview/issues</issue>
+	<js-module src="www/controlWebview.js" name="controlWebview">
+		<clobbers target="controlWebview" />
+	</js-module>
+	<asset src="www/control.html" target="control.html" />
+	<asset src="www/control.js" target="control.js" />
+	<platform name="android">
+		<source-file src="src/android/controlWebview.java" target-dir="src/de/fastr/phonegap/plugins" />
+ 		<config-file target="res/xml/config.xml" parent="/*">
+			<feature name="controlWebview">
+				<param name="android-package" value="de.fastr.phonegap.plugins.ControlWebview"/>
+			</feature>
+		</config-file>
+	</platform>
+	<platform name="ios">
+		<header-file src="src/ios/CDVControlWebview.h" />
+		<source-file src="src/ios/CDVControlWebview.m" />
+		<config-file target="config.xml" parent="/*">
+			<feature name="controlWebview">
+				<param name="ios-package" value="ControlWebview" />
+			</feature>
+		</config-file>
+	</platform>
+</plugin>
