@@ -12,8 +12,14 @@ import android.content.Context;
 import android.app.Activity;
 import android.view.View;
 
+import org.apache.cordova.CordovaWebViewClient;
+import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CordovaWebView;
 import org.apache.cordova.CordovaActivity;
+import de.fastr.phonegap.plugins.ControlWebviewClient;
+/*import android.webkit.WebView;
+import android.webkit.WebViewClient;
+*/
 /*
  * thx to http://stackoverflow.com/questions/843675/how-do-i-find-out-if-the-gps-of-an-android-device-is-enabled
  */
@@ -42,13 +48,18 @@ public class ControlWebview extends CordovaPlugin{
 	private boolean init(){
    	final CordovaActivity activity = (CordovaActivity) this.cordova.getActivity();
 		final Context context = activity.getApplicationContext();
+		final CordovaWebView appView = this.webView;
+		final CordovaInterface cordova = this.cordova;	
 		(activity).runOnUiThread(new Runnable() {
     	@Override
     	public void run() {
-				controlView = new CordovaWebView(activity);
+				CordovaWebView controlView = new CordovaWebView(activity);
+				ControlWebviewClient client = new ControlWebviewClient(cordova, appView, controlView);
 				controlView.setId(200);
 				controlView.setVisibility(View.INVISIBLE);
 				controlView.loadUrl("file:///android_asset/www/control.html");
+				//client.setControlView(controlView);
+				appView.setWebViewClient(client);
     	}
 		});
 				return true;
@@ -64,7 +75,7 @@ public class ControlWebview extends CordovaPlugin{
 		return true;
   }
 	private boolean javascript(String script){
-		this.loadUrlInMainView(script);	
+		this.loadUrlInMainView("javascript:"+script);	
 		return true;
   }
 }

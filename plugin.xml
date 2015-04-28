@@ -14,6 +14,7 @@
 	<asset src="www/control.js" target="control.js" />
 	<platform name="android">
 		<source-file src="src/android/ControlWebview.java" target-dir="src/de/fastr/phonegap/plugins" />
+		<source-file src="src/android/ControlWebviewClient.java" target-dir="src/de/fastr/phonegap/plugins" />
  		<config-file target="res/xml/config.xml" parent="/*">
 			<feature name="controlWebview">
 				<param name="android-package" value="de.fastr.phonegap.plugins.ControlWebview"/>
