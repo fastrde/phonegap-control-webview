@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="CordovaLib">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../../cvapp/platforms/android/CordovaLib" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../../../cvapp/platforms/android/CordovaLib/build/generated/source/buildConfig/debug" />
+      <root url="file://$PROJECT_DIR$/../../../cvapp/platforms/android/CordovaLib/src" />
+    </SOURCES>
+  </library>
+</component>

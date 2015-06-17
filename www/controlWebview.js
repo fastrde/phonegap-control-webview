@@ -22,6 +22,6 @@ var controlWebview = {
 	onload: function(){
 		console.log("LOADED EXECUTED!!");
 	}
-}
+};
 
 module.exports = controlWebview;
