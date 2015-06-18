@@ -1,4 +1,4 @@
-var cordova = require('cordova'),
+cordova.define("de.fastr.phonegap.plugins.ControlWebview.controlWebview", function(require, exports, module) { cordova.define("de.fastr.phonegap.plugins.ControlWebview.controlWebview", function(require, exports, module) { var cordova = require('cordova'),
     exec = require('cordova/exec');
 
 var controlWebview = {
@@ -25,3 +25,7 @@ var controlWebview = {
 };
 
 module.exports = controlWebview;
+
+});
+
+});
